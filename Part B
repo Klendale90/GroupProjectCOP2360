@@ -1,0 +1,13 @@
+// Displays all keys and their associated values in the dictionary
+static void DisplayDictionary()
+{
+    Console.WriteLine("\nDictionary Contents:");
+
+    // Enumerate through each key-value pair in the dictionary
+    foreach (var kvp in myDictionary)
+    {
+        // Print the key and join all values in the list with commas
+        Console.WriteLine($"{kvp.Key}: [{string.Join(", ", kvp.Value)}]");
+    }
+}
+
