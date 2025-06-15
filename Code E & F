@@ -14,9 +14,9 @@ namespace Collections
             characters.Add(104, "decode");
             characters.Add(158, "encrypt");
             characters.Add(200, "decrypt");
-            characters[200] = "garble"; // Update existing key
+            characters.Add(201, "garble"); // Add a new key-value pair
+            characters[200] = "scramble"; // Update existing key
             
-
             //sort the keys values
             foreach (KeyValuePair<int, string> kvp in characters)
             {
