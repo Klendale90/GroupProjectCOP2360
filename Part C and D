@@ -1,0 +1,67 @@
+// C. Remove a Key: Remove a specified key from the dictionary.
+// D. Add a New Key and Value: Insert a new key-value pair into the dictionary.
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        // This will create a dictionary to store key-value pairs (both keys and values are strings)
+        var myDictionary = new Dictionary<string, string>();
+
+        while (true)
+        {
+            // This will ask the user if they want to remove or add something
+            Console.WriteLine("Choose an option: Remove (1) or Add (2). Type 'exit' to quit.");
+            string choice = Console.ReadLine();
+
+            // This will allow the user to exit the program
+            if (choice == "exit") break;
+
+            switch (choice)
+            {
+                case "1":
+                    // In this part it will removea key from the dictionary
+                    Console.Write("Enter the key you want to remove: ");
+                    string keyToRemove = Console.ReadLine();
+
+                    // This part will try to remove the key, and will tell the user if successful or not
+                    if (myDictionary.Remove(keyToRemove))
+                    {
+                        Console.WriteLine($"Key '{keyToRemove}' was removed.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Key '{keyToRemove}' not found.");
+                    }
+                    break;
+
+                case "2":
+                    // Tis will add a new key-value pair to the dictionary
+                    Console.Write("Enter a new key: ");
+                    string newKey = Console.ReadLine();
+
+                    Console.Write("Enter the value for that key: ");
+                    string newValue = Console.ReadLine();
+
+                    // It will add the key-value pair to the dictionary
+                    myDictionary[newKey] = newValue;
+                    Console.WriteLine($"Added: '{newKey}' → '{newValue}'");
+                    break;
+
+                default:
+                    // This will runs if the user types something other than 1 or 2 in the program
+                    Console.WriteLine("Invalid choice. Please type 1, 2, or 'exit'.");
+                    break;
+            }
+        }
+
+        // In the end this will show the final dictionary contents before exiting
+        Console.WriteLine("\nFinal Dictionary Contents:");
+        foreach (var item in myDictionary)
+        {
+            Console.WriteLine($"{item.Key}: {item.Value}");
+        }
+    }
+}
