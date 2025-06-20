@@ -1,0 +1,25 @@
+// Contractor.cs
+// This class represents a general contractor with basic identifying information.
+
+public class Contractor
+{
+    // Property to store the contractor's name
+    public string Name { get; set; }
+
+    // Property to store the contractor's unique number
+    public int Number { get; set; }
+
+    // Property to store the contractor's start date
+    public DateTime StartDate { get; set; }
+
+    // Default constructor
+    public Contractor() { }
+  
+    // Parameterized constructor to initialize all fields
+    public Contractor(string name, int number, DateTime startDate)
+    {
+        Name = name;
+        Number = number;
+        StartDate = startDate;
+    }
+}
