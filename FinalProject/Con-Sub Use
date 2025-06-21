@@ -33,5 +33,22 @@ class Program
             Console.WriteLine("Enter hourly pay rate:");
             double hourlyPayRate = double.Parse(Console.ReadLine());
 
+            // Prompt user for hours worked
+            Console.WriteLine("Enter hours worked:");
+            float hoursWorked = float.Parse(Console.ReadLine());
+
             // Create a new Subcontractor object with the provided information
             var subcontractor = new Subcontractor(name, number, startDate, shift, hourlyPayRate);
+            subcontractors.Add(subcontractor);
+
+            // Compute and display pay
+            float pay = subcontractor.ComputePay(hoursWorked);
+            Console.WriteLine($"Subcontractor {name} pay: ${pay:F2}");
+
+            // Ask if user wants to add another subcontractor
+            Console.WriteLine("Add another subcontractor? (yes/no):");
+            input = Console.ReadLine().ToLower();
+
+        } while (input == "yes");
+    }
+}
