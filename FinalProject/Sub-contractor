@@ -1,0 +1,45 @@
+// Subcontractor class derived from Contractor
+class Subcontractor : Contractor
+{
+    // This are the variables to store subcontractor's shift and hourly pay rate
+    private int shift;             // 1 = Day shift, 2 = Night shift
+    private double hourlyPayRate;  // Hourly pay rate for the subcontractor
+
+    // The Constructor for Subcontractor
+    // This will take the name, number, start date (from Contractor), plus shift and hourly pay rate
+    public Subcontractor(string name, int number, DateTime startDate, int shift, double hourlyPayRate)
+        : base(name, number, startDate)  // Calls the constructor of the base (Contractor) class
+    {
+        this.shift = shift;                  // Sets the shift (1 or 2)
+        this.hourlyPayRate = hourlyPayRate;  // Sets the hourly pay rate
+    }
+
+    // Getter method for shift
+    public int GetShift() { return shift; }
+
+    // Getter method for hourly pay rate
+    public double GetHourlyPayRate() { return hourlyPayRate; }
+
+    // Setter method to change the shift
+    public void SetShift(int shift) { this.shift = shift; }
+
+    // Setter method to change the hourly pay rate
+    public void SetHourlyPayRate(double rate) { this.hourlyPayRate = rate; }
+
+    // This will compute the total pay based on hours worked
+    // Returns a float representing total pay
+    public float ComputePay(double hoursWorked)
+    {
+        // Calculate base pay: hourly rate * number of hours worked
+        double basePay = hourlyPayRate * hoursWorked;
+
+        // If subcontractor works the night shift (shift == 2), add a 3% bonus to the base pay
+        if (shift == 2)
+        {
+            basePay *= 1.03;  // Apply the 3% shift differential
+        }
+
+        // Return the total pay as a float
+        return (float)basePay;
+    }
+}
