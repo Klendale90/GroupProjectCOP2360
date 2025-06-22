@@ -1,4 +1,4 @@
-// This code is not finished.
+//Group 4 Final Project
 
 using System;
 using System.Collections.Generic;
@@ -35,3 +35,24 @@ class Program
 
             // Create a new Subcontractor object with the provided information
             var subcontractor = new Subcontractor(name, number, startDate, shift, hourlyPayRate);
+
+            Console.WriteLine("Enter hours worked:");
+            float hoursWorked = float.Parse(Console.ReadLine());
+
+            float pay = subcontractor.ComputePay(hoursWorked);
+            Console.WriteLine($"Computed pay: {pay:C}");
+
+            subcontractors.Add(subcontractor);
+
+            Console.WriteLine("Add another subcontractor? (y/n):");
+            input = Console.ReadLine().ToLower();
+
+        } while (input == "y");
+
+        Console.WriteLine("\nAll subcontractors entered:");
+        foreach (var sc in subcontractors)
+        {
+            Console.WriteLine($"{sc.Name}, #{sc.Number}, Start: {sc.StartDate.ToShortDateString()}, Shift: {sc.Shift}, Rate: {sc.HourlyPayRate:C}");
+        }
+    }
+}
