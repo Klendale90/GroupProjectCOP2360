@@ -1,0 +1,58 @@
+//Group 4 Final Project
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        // List to store multiple subcontractor objects
+        List<Subcontractor> subcontractors = new List<Subcontractor>();
+        string input;
+
+        do
+        {
+            // Prompt user for subcontractor's name
+            Console.WriteLine("Enter subcontractor name:");
+            string name = Console.ReadLine();
+
+            // Prompt user for contractor number
+            Console.WriteLine("Enter contractor number:");
+            int number = int.Parse(Console.ReadLine());
+
+            // Prompt user for start date and parse to DateTime
+            Console.WriteLine("Enter start date (yyyy-MM-dd):");
+            DateTime startDate = DateTime.Parse(Console.ReadLine());
+
+            // Prompt user for shift (1 = day, 2 = night)
+            Console.WriteLine("Enter shift (1 = day, 2 = night):");
+            int shift = int.Parse(Console.ReadLine());
+
+            // Prompt user for hourly pay rate
+            Console.WriteLine("Enter hourly pay rate:");
+            double hourlyPayRate = double.Parse(Console.ReadLine());
+
+            // Create a new Subcontractor object with the provided information
+            var subcontractor = new Subcontractor(name, number, startDate, shift, hourlyPayRate);
+
+            Console.WriteLine("Enter hours worked:");
+            float hoursWorked = float.Parse(Console.ReadLine());
+
+            float pay = subcontractor.ComputePay(hoursWorked);
+            Console.WriteLine($"Computed pay: {pay:C}");
+
+            subcontractors.Add(subcontractor);
+
+            Console.WriteLine("Add another subcontractor? (y/n):");
+            input = Console.ReadLine().ToLower();
+
+        } while (input == "y");
+
+        Console.WriteLine("\nAll subcontractors entered:");
+        foreach (var sc in subcontractors)
+        {
+            Console.WriteLine($"{sc.Name}, #{sc.Number}, Start: {sc.StartDate.ToShortDateString()}, Shift: {sc.Shift}, Rate: {sc.HourlyPayRate:C}");
+        }
+    }
+}
