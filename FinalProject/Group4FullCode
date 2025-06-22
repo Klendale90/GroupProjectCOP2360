@@ -1,6 +1,9 @@
 // Contractor.cs
 // This class represents a general contractor with basic identifying information.
 
+using System;
+using System.Collections.Generic;
+
 public class Contractor
 {
     // Property to store the contractor's name
@@ -75,9 +78,6 @@ class Subcontractor : Contractor
 
 // Program.cs
 // This class demonstrates the use of Contractor and Subcontractor classes.
-
-using System;
-using System.Collections.Generic;
 
 class Program
 {
