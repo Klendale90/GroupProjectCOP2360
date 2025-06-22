@@ -37,6 +37,9 @@ class Subcontractor : Contractor
     private int shift;             // 1 = Day shift, 2 = Night shift
     private double hourlyPayRate;  // Hourly pay rate for the subcontractor
 
+    public object Shift { get; internal set; }
+    public object HourlyPayRate { get; internal set; }
+
     // The Constructor for Subcontractor
     // This will take the name, number, start date (from Contractor), plus shift and hourly pay rate
     public Subcontractor(string name, int number, DateTime startDate, int shift, double hourlyPayRate)
@@ -98,7 +101,7 @@ class Program
             int number = int.Parse(Console.ReadLine());
 
             // Prompt user for start date and parse to DateTime
-            Console.WriteLine("Enter start date (yyyy-MM-dd):");
+            Console.WriteLine("Enter start date (MM-DD-YYY):");
             DateTime startDate = DateTime.Parse(Console.ReadLine());
 
             // Prompt user for shift (1 = day, 2 = night)
@@ -137,4 +140,6 @@ class Program
         }
     }
 }
+
+
 
